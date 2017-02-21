@@ -26,16 +26,9 @@ ROBOTSTXT_OBEY = False
 DOWNLOAD_DELAY=3
 
 DOWNLOADER_MIDDLEWARES = {
-    'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,#必需 ,禁用默认的middleware
-    'jianshu.middlewares.ProxyMiddleware': 543,
-}
-
-DOWNLOADER_MIDDLEWARES = {
-#    'cnblogs.middlewares.MyCustomDownloaderMiddleware': 543,
     'jianshu.middlewares.RandomUserAgent': 1,
-    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 110,
-    #'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
-    'jianshu.middlewares.ProxyMiddleware': 100,
+#    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 110,
+#    'jianshu.middlewares.ProxyMiddleware': 100,
 }
 
 
@@ -59,12 +52,28 @@ USER_AGENTS = [
 ]
 
 PROXIES = [
-    {'ip_port': '124.88.67.10:80', 'user_pass': ''},
-    {'ip_port': '124.88.67.54:80', 'user_pass': ''},
     {'ip_port': '123.169.88.247:808', 'user_pass': ''},
-    {'ip_port': '110.245.155.207:9999', 'user_pass': ''},
-    {'ip_port': '39.88.166.246:8118', 'user_pass': ''},
+    {'ip_port': '202.110.14.150:9999', 'user_pass': ''},
+    {'ip_port': '60.178.11.221:9999', 'user_pass': ''},
     {'ip_port': '118.123.245.154:3128', 'user_pass': ''},
+    {'ip_port': '27.14.69.194:9999', 'user_pass': ''},
+    {'ip_port': '122.228.179.178:80', 'user_pass': ''}
+]
+
+
+FEED_EXPORTERS = {
+    'csv': 'weightxreps.exporter.CSVitemExporter'
+}
+
+EXPORT_FIELDS = [
+    'author',
+    'article',
+    'date',
+    'word',
+    'view',
+    'comment',
+    'like',
+    'gain'
 ]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
